@@ -75,6 +75,7 @@ public class Admin_Page extends DBWorker{
 
             try {
                    // Add_Button_Query();
+                // ВОТ ТУТ НУЖЕН МЕТОД КАКОЙ-ТАААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААА
 
             }catch (Exception p){
                 p.printStackTrace();
@@ -124,6 +125,7 @@ public class Admin_Page extends DBWorker{
             e.printStackTrace();
         }
     }
+            //ВОТ НАВЕРНОЕ МЕТОД, НО Я НЕ МОГУ В НЕМ УКАЗАТЬ НА name_field.getText(), НАПРИМЕР, ПОТОМУ ЧТО ОН В ДРУГОМ МЕТОДЕ, ПАМАГИТИ!
 
    /* public static void Add_Button_Query() throws SQLException {
 
@@ -134,7 +136,7 @@ public class Admin_Page extends DBWorker{
 
         connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         statement = connection.createStatement();
-        String sql = ("Insert into users (name,second_name,login,password,role) VALUES ()") ;
+        String sql = ("Insert into users (name,second_name,login,password,role) values ('" + name_field.getText() + "', '" + second_Name_field.getText() + "', '" + login_field.getText() + "', '" + password_field.getText() + "', '" + role_field.getText() + ")";);
         rs = statement.executeQuery(sql);
 
     }*/
