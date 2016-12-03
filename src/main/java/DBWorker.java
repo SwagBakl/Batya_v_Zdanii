@@ -16,6 +16,7 @@ public class DBWorker {
     private static final String URL = "jdbc:mysql://localhost:3306/bank_roll";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
+    private static final String SQL_INSERT_NEW_USER = "INSERT INTO users (name,login, password,role) VALUES(?,?,?,?)";
 
     public User checkUser(String login, String password) throws SQLException {
         Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -70,6 +71,24 @@ public class DBWorker {
             statement.close();
         }
         return users;
+    }
+
+    public void addUser(String name, String secondName, String login, int passwd, int role) throws SQLException {
+        Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(SQL_INSERT_NEW_USER);
+            statement.setString(1, name);
+            statement.setString(2, login);
+            statement.setInt(3, passwd);
+            statement.setInt(4, role);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            connection.close();
+            statement.close();
+        }
     }
 
 
